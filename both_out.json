@@ -1,0 +1,3 @@
+[ 
+  {"domain":"example.com","soa":"ns.icann.org","ns":"b.iana-servers.net,a.iana-servers.net","a":"10.5.64.43","aaaa":"10.5.64.43","cname":"-","whois":"-","ping":"OK","http":"OK","https":"OK"}
+ ]
