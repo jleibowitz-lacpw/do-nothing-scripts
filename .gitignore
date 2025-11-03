@@ -22,4 +22,7 @@ test_export_*.json
 out_*.md
 out_*.json
 
+# Example/demo outputs folder
+examples/
+
 # GitHub workflows local testing
