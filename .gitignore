@@ -23,4 +23,3 @@ out_*.md
 out_*.json
 
 # GitHub workflows local testing
-.github/

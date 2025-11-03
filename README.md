@@ -93,6 +93,14 @@ Run the small test runner which executes syntax checks and smoke tests locally:
 ./test/run_all.sh
 ```
 
+What I'll demo (1 minute each):
+
+- Run the test runner: `./test/run_all.sh` (syntax checks + smoke tests)
+- Generate a shareable checklist: `./domain_lookup_min.sh --host example.com --output-md demo_example.md`
+- Show the interactive export shortcut (if `gum` is installed): `./domain_lookup_interactive.sh --export-md example.com demo_interactive.md`
+
+These steps produce a tiny Markdown checklist and optional JSON you can paste into an issue or slides.
+
 ### Export & share (interactive)
 
 The interactive `domain_lookup_interactive.sh` provides an "Export & share" action (Gum UI) that can write:
