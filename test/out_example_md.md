@@ -1,15 +1,28 @@
 # Domain diagnostics checklist
 
-Generated: $(date --iso-8601=seconds 2>/dev/null || date)
+Generated: 2025-11-03T15:44:09-08:00
 
-## $host
+## example.com
 
- - [x] A record: \\`$a\\`
- - [x] AAAA record: \\`$aaaa\\`
- - [ ] CNAME: \\`$cname\\`
- - [x] NS: \\`$ns\\`
- - [x] SOA: \\`$soa\\`
- - [ ] WHOIS (registrar/org): \\`$whois_summary\\`
- - [x] Ping: \\`$ping_res\\`
- - [x] HTTP: \\`$(echo "$http_res" | cut -d'|' -f1)\\` HTTPS: [x] \\`$(echo "$http_res" | cut -d'|' -f2)\\`
+| Field | Value |
+|-------|-------|
+| A | 10.5.64.43 |
+| AAAA | - |
+| CNAME | - |
+| MX | (root)(=) |
+| TXT | , |
+| CAA | - |
+| NS | b.iana-servers.net,a.iana-servers.net |
+| SOA | ns.icann.org |
+| Registrar | - |
+| Expiry | - |
+| WHOIS Status | - |
+| Ping | OK |
+| HTTP | OK |
+| HTTPS | OK |
+
+### Quick RDAP Links
+
+- https://rdap.org/domain/example.com
+- https://rdap.icann.org/lookup?domain=example.com
 
