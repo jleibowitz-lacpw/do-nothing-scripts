@@ -1,0 +1,26 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
+*~
+
+# Python virtualenvs
+venv/
+env/
+
+# ShellCheck backups / logs
+*.log
+
+# Demo & test outputs
+demo_*.md
+demo_*.json
+test_export_*.md
+test_export_*.json
+out_*.md
+out_*.json
+
+# GitHub workflows local testing
+.github/
