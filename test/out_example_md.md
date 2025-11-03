@@ -1,15 +1,15 @@
 # Domain diagnostics checklist
 
-Generated: 2025-11-03T15:06:07-08:00
+Generated: $(date --iso-8601=seconds 2>/dev/null || date)
 
-## example.com
+## $host
 
- - [x] A record: `10.5.64.43`
- - [x] AAAA record: `10.5.64.43`
- - [ ] CNAME: `-`
- - [x] NS: `b.iana-servers.net,a.iana-servers.net`
- - [x] SOA: `ns.icann.org`
- - [ ] WHOIS (registrar/org): `-`
- - [x] Ping: `OK`
- - [x] HTTP: `OK` HTTPS: [x] `OK`
+ - [x] A record: \\`$a\\`
+ - [x] AAAA record: \\`$aaaa\\`
+ - [ ] CNAME: \\`$cname\\`
+ - [x] NS: \\`$ns\\`
+ - [x] SOA: \\`$soa\\`
+ - [ ] WHOIS (registrar/org): \\`$whois_summary\\`
+ - [x] Ping: \\`$ping_res\\`
+ - [x] HTTP: \\`$(echo "$http_res" | cut -d'|' -f1)\\` HTTPS: [x] \\`$(echo "$http_res" | cut -d'|' -f2)\\`
 

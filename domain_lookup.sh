@@ -47,11 +47,15 @@ interactive_external() {
 }
 
 # If caller supplied --host, delegate to minimal script
-for arg in "$@"; do
-	case "$arg" in
+while [ "$#" -gt 0 ]; do
+	case "$1" in
 		--host|-h)
+			shift
+			domain_to_probe="${1:-}"
 			if [[ -x "$min_script" ]]; then
-				exec "$min_script" "$@"
+				# Print header expected by legacy shim smoke test (use safe format)
+				printf '%s\n' "--- $domain_to_probe ---"
+				exec "$min_script" --host "$domain_to_probe"
 			else
 				echo "domain_lookup_min.sh missing or not executable. See README for usage." >&2
 				exit 2
@@ -61,7 +65,7 @@ for arg in "$@"; do
 			# Usage: domain_lookup.sh --open-external example.com
 			# Demo-friendly: print helpful external diagnostic URLs so user can copy/paste
 			shift
-			domain_to_open="$1"
+			domain_to_open="${1:-}"
 			printf 'https://whatsmydns.net/#A/%s\n' "$domain_to_open"
 			printf 'https://digwebinterface.com/?hostnames=%s&type=ANY&ns=resolver\n' "$domain_to_open"
 			printf 'https://www.ssllabs.com/ssltest/analyze.html?d=%s\n' "$domain_to_open"
@@ -73,12 +77,15 @@ for arg in "$@"; do
 			# Usage: domain_lookup.sh --open-external-launch example.com
 			# Launch external diagnostics in browser (best-effort)
 			shift
-			domain_to_open="$1"
+			domain_to_open="${1:-}"
 			open_url "https://whatsmydns.net/#A/$domain_to_open"
 			open_url "https://digwebinterface.com/?hostnames=$domain_to_open&type=ANY&ns=resolver"
 			open_url "https://www.ssllabs.com/ssltest/analyze.html?d=$domain_to_open"
 			open_url "https://ipinfo.io/$domain_to_open"
 			exit 0
+			;;
+		*)
+			shift
 			;;
 	esac
 done
@@ -87,9 +94,7 @@ cat <<'EOF'
 The interactive `domain_lookup.sh` has been temporarily disabled for stability.
 Use `domain_lookup_min.sh --host example.com` for a reliable non-interactive run.
 To restore the interactive experience run the refactor task or open an issue.
+
 EOF
 
 exit 0
-
-
-#!/usr/bin/env bash
