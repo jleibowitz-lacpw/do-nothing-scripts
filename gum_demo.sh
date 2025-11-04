@@ -30,7 +30,7 @@ gum style --bold "First, let's use 'gum confirm' to ask for confirmation."
 if gum confirm "Are you ready to start the demo?"; then
     gum style --foreground 212 "Great! Let's go."
 else
-    gum style --foreground 196 "Aborting demo."
+    gum style --foreground 196 "Ending demo."
     exit 0
 fi
 echo
