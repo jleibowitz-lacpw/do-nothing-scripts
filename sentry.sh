@@ -88,19 +88,24 @@ gum confirm "Press Enter once you've completed this step." && {
 }
 
 # Step 10: Locate the Project and click the Gear icon
+gum style --foreground 212 --border rounded --align left "Step 10: Locate the project you just created and click on the Gear icon:"
 project_name=$(gum input --placeholder "Enter the name of the project you just created")
 echo "Locate the project named '$project_name' and click on the Gear icon to the right of the project name."
 
 # Step 11: Navigate to Alert Settings
+gum style --foreground 212 --border rounded --align left "Step 11: Navigate to Alert Settings:"
 echo "Under General Settings, select 'Alert Settings'."
 
 # Step 12: View Alert Rules
+gum style --foreground 212 --border rounded --align left "Step 12: View Alert Rules:"
 echo "Click 'View Alert Rules'."
 
 # Step 13: Edit the existing rule
+gum style --foreground 212 --border rounded --align left "Step 13: Edit the existing rule:"
 echo "Edit the existing rule by selecting the 3 dots and clicking the 'Edit' link."
 
 # Step 14: Modify the WHEN section
+gum style --foreground 212 --border rounded --align left "Step 14: Modify the 'WHEN' section of the alert rule:"
 echo "Change the 'WHEN' section as follows:"
 echo "1. Delete the original 2 conditions."
 echo "2. Add the following 2 new conditions:"
@@ -109,27 +114,34 @@ echo "   - 'A new issue is created'"
 echo "   - 'Number of events in an issue is more than 0 in 5 minutes'"
 
 # Step 15: Change name and owner section
+gum style --foreground 212 --border rounded --align left "Step 15: Change the 'Name' and 'Owner' section:"
 echo "Change the 'Name' and 'Owner' section to appropriately reflect the Alert name and Team."
 echo "For example, set the name to 'Send notification' and the owner to the team you chose previously (e.g., '#gis')."
 
 # Step 16: Save the rule
+gum style --foreground 212 --border rounded --align left "Step 16: Save the rule:"
 echo "Click 'Save Rule' to save your changes."
 
 # Step 17: Navigate to Client Keys (DSN)
+gum style --foreground 212 --border rounded --align left "Step 17: Navigate to 'Client Keys (DSN)':"
 echo "Click on 'Client Keys (DSN)' under the 'SDK Setup' section."
 
 # Step 18: Configure rate limits
+gum style --foreground 212 --border rounded --align left "Step 18: Configure rate limits:"
 echo "Click 'Configure' in the upper right corner of the 'Client Keys (DSN)' section."
 
 # Step 19: Set rate limits
+gum style --foreground 212 --border rounded --align left "Step 19: Set rate limits:"
 echo "Under 'Rate Limit', enter/select '1000 events in 1 day'."
 echo "Note: This rate can be changed if requested by the developer or if requirements change."
 
 # Step 20: Copy DSN key
+gum style --foreground 212 --border rounded --align left "Step 20: Copy the DSN key:"
 dsn_key=$(gum input --placeholder "Paste the DSN key here")
 echo "DSN key saved for later use."
 
 # Step 21: Generate email for developer
+gum style --foreground 212 --border rounded --align left "Step 21: Generate email content for the developer:"
 project_name=$(gum input --placeholder "Enter the project name")
 developer_name=$(gum input --placeholder "Enter the developer's name")
 instructions_url=$(gum input --placeholder "Enter the Sentry instructions URL")
