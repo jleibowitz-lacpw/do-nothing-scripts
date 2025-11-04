@@ -23,7 +23,7 @@ These examples are written in Bash, but the approach is language-agnostic: you c
 
 ## The Banana Leaf Philosophy
 
-The "do-nothing" approach is inspired by a design philosophy from Charles Eames, often called the "banana leaf parable." In a 1978 lecture, Eames described a hierarchy of dinnerware in India, from the simple banana leaf for the lowest castes to ornate gold and silver plates for the wealthy. He observed that the most enlightened people—those with both means and understanding—ultimately return to eating off a simple banana leaf.
+The "do-nothing" approach is in part influenced by a design philosophy from Charles Eames, often called the "banana leaf parable." In a 1978 lecture, Eames described a hierarchy of dinnerware in India, from the simple banana leaf for the lowest castes to ornate gold and silver plates for the wealthy. He observed that the most enlightened people—those with both means and understanding—ultimately return to eating off a simple banana leaf.
 
 > "...it is that process that has happened within the man that changes the banana leaf."
 >
