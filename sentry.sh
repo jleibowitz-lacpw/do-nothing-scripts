@@ -5,10 +5,10 @@ set -euo pipefail
 # Sentry Project Setup Script with Gum
 
 
-# Step 1: Welcome Message
+# Welcome Message
 gum style --foreground 212 --border double --align center 'Sentry Project Setup Wizard'
 
-# Step 2: Open Sentry Portal Instructions
+# Step 1: Open Sentry Portal Instructions
 gum style --foreground 212 --border rounded --align left "Step 1: Open the Sentry portal in your browser:"
 echo "URL: https://los-angeles-county-public-works.sentry.io/"
 echo "If logged out, log in with Active Directory (SSO). It may keep you logged in for some time."
@@ -17,7 +17,7 @@ gum confirm "Press Enter once you've completed this step." && {
   echo "Great! Let's move to the next step."
 }
 
-# Step 3: Navigate to Projects Page
+# Step 2: Navigate to Projects Page
 gum style --foreground 212 --border rounded --align left "Step 2: Navigate to the Projects page:"
 echo "URL: https://los-angeles-county-public-works.sentry.io/insights/projects/"
 echo "This will take you directly to the Projects section in Sentry."
@@ -26,7 +26,7 @@ gum confirm "Press Enter once you've completed this step." && {
   echo "Great! Let's move to the next step."
 }
 
-# Step 4: Navigate to Create Project Page
+# Step 3: Navigate to Create Project Page
 gum style --foreground 212 --border rounded --align left "Step 3: Navigate to the Create Project page:"
 echo "URL: https://los-angeles-county-public-works.sentry.io/insights/projects/new/"
 echo "This will take you directly to the Create Project section in Sentry."
@@ -35,7 +35,7 @@ gum confirm "Press Enter once you've completed this step." && {
   echo "Great! Let's move to the next step."
 }
 
-# Step 5: Select Project Type
+# Step 4: Select Project Type
 gum style --foreground 212 --border rounded --align left "Step 4: Select the project type:"
 echo "For MVC, React, or Blazor applications, select ASP.NET Core."
 echo "For ASP.NET Forms, select .NET."
@@ -43,7 +43,7 @@ project_type=$(gum choose "ASP.NET Core (MVC, React, Blazor)" ".NET (ASP.NET For
 
 echo "You selected: $project_type"
 
-# Step 6: Set Alert Frequency
+# Step 5: Set Alert Frequency
 gum style --foreground 212 --border rounded --align left "Step 5: Set your alert frequency:"
 echo "Select 'Alert me on high priority issues' for now."
 gum style --foreground 33 "Note: This will be edited later."
@@ -51,7 +51,7 @@ alert_frequency=$(gum choose "Alert me on high priority issues" "Alert me on all
 
 echo "You selected: $alert_frequency"
 
-# Step 7: Obtain Application Name from CAL
+# Step 6: Obtain Application Name from CAL
 gum style --foreground 212 --border rounded --align left "Step 6: Obtain the application name from CAL:"
 echo "Go to CAL to obtain the name of the application."
 echo "Copy and paste it into the Project Name field."
@@ -60,7 +60,7 @@ application_name=$(gum input --placeholder "Enter the application name (e.g., ex
 
 echo "Application Name: $application_name"
 
-# Step 8: Select Team
+# Step 7: Select Team
 gum style --foreground 212 --border rounded --align left "Step 7: Select the appropriate team:"
 echo "Select the team that the application belongs to."
 echo "If unsure, ask the developer for clarification."
@@ -68,7 +68,7 @@ team=$(gum choose "#data-management" "#infrastructure-systems" "#project-program
 
 echo "You selected: $team"
 
-# Step 9: Create Project and Input Instructions URL
+# Step 8: Create Project and Input Instructions URL
 gum style --foreground 212 --border rounded --align left "Step 8: Create the project and input the Instructions URL:"
 echo "Click 'Create Project' in the Sentry interface."
 echo "If the project is created successfully, you should see the 'Configure ASP.NET Core SDK' page."
@@ -78,7 +78,7 @@ instructions_url=$(gum input --placeholder "Paste the Instructions URL here")
 
 echo "Instructions URL: $instructions_url"
 
-# Step 10: Navigate Back to Projects Page
+# Step 9: Navigate Back to Projects Page
 gum style --foreground 212 --border rounded --align left "Step 9: Navigate back to the Projects page:"
 echo "URL: https://los-angeles-county-public-works.sentry.io/insights/projects/"
 echo "This will take you directly to the Projects section in Sentry."
