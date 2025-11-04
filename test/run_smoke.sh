@@ -2,7 +2,7 @@
 set -eu
 # Simple smoke test: run the minimal domain lookup script and ensure it exits 0
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-MIN_SCRIPT="$ROOT_DIR/domain_lookup_min.sh"
+MIN_SCRIPT="$ROOT_DIR/bin/domain_lookup_min.sh"
 
 if [[ ! -x "$MIN_SCRIPT" ]]; then
   echo "ERROR: $MIN_SCRIPT not found or not executable" >&2

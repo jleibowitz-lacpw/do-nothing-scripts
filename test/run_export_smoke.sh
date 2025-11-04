@@ -7,7 +7,7 @@ cd "$ROOT_DIR"
 outfile="test_export_example.md"
 rm -f "$outfile"
 
-bash domain_lookup_interactive.sh --export-md example.com "$outfile"
+bash "$ROOT_DIR/lib/domain_lookup_interactive.sh" --export-md example.com "$outfile"
 if [[ -f "$outfile" ]]; then
   echo "export smoke: PASS"
   exit 0

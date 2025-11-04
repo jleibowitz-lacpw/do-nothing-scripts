@@ -5,7 +5,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$SCRIPT_DIR"
 
-source ./domain_lookup_lib.sh
+source "$SCRIPT_DIR/lib/domain_lookup_lib.sh"
 
 # We can't rely on network in CI; instead stub has_cmd to pretend dig is not present
 # and provide a fake output by temporarily overriding get_mx_records behavior.

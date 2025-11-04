@@ -5,7 +5,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$SCRIPT_DIR"
 
-source ./domain_lookup_lib.sh
+source "$SCRIPT_DIR/lib/domain_lookup_lib.sh"
 out=$(get_whois_summary example.com)
 fields=$(awk -F"|" '{print NF}' <<<"$out")
 if [ "$fields" -eq 4 ]; then

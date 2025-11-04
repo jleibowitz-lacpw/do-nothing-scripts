@@ -5,7 +5,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$SCRIPT_DIR"
 
-source ./domain_lookup_lib.sh
+source "$SCRIPT_DIR/lib/domain_lookup_lib.sh"
 
 # Stub has_cmd to avoid network dependency
 orig_has_cmd=$(declare -f has_cmd || true)

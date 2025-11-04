@@ -1,0 +1,20 @@
+
+Hi developer,
+
+The Project demo was created and below is the DSN key:
+
+step21DSN
+
+Sentry instructions page:
+URL from step 8
+
+Additional instructions:
+https://github.com/la-county-dpw/PW-Library#13-pwsentry
+https://docs.sentry.io/platforms
+https://docs.sentry.io/platforms/dotnet/guides/aspnet/#install
+https://docs.sentry.io/platforms/dotnet/guides/aspnetcore/
+
+Wiki page:
+https://lacounty.sharepoint.com/teams/DPW/cio/itdsa/devcorner/Developers%20Guide/Sentry%20Error%20Handler.aspx
+
+

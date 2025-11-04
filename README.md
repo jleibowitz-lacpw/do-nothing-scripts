@@ -126,3 +126,45 @@ The JSON format is intentionally simple and intended for quick ingestion in scri
 
 
 This is a quick way to validate the repository tools on a machine with `bash`, `curl`, and basic networking.
+
+# Installing Required Tools
+
+To ensure the `domain_lookup.sh` script works seamlessly, you need to install the following tools:
+
+- `dig`: For DNS lookups
+- `whois`: For domain registration information
+
+On Windows, you can use the `scoop` package manager to install these tools easily. Follow these steps:
+
+### Step 1: Install Scoop
+If you don't already have Scoop installed, open PowerShell and run:
+
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm get.scoop.sh | iex
+```
+
+### Step 2: Install Required Tools
+Once Scoop is installed, use it to install `dig` and `whois`:
+
+```powershell
+scoop install bind-tools
+scoop install whois
+```
+
+### Step 3: Verify Installation
+After installation, verify that the tools are available by running:
+
+```powershell
+dig -v
+whois -v
+```
+
+If both commands return version information, the tools are successfully installed.
+
+### Step 4: Run the Script
+You can now run the `domain_lookup.sh` script without issues:
+
+```bash
+./domain_lookup.sh
+```

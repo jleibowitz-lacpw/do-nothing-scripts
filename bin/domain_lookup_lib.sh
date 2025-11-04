@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Shared helpers for domain lookup scripts (moved to lib folder)
+# Shared helpers for domain lookup scripts
 
 has_cmd() { command -v "$1" >/dev/null 2>&1; }
 
@@ -106,15 +106,22 @@ get_whois_info() {
   fi
 }
 
+# get_whois_summary: returns a pipe-separated summary suitable for quick checks
+# Output format: Registrar|Expiry|NameServers(comma-separated)|Status(comma-separated)
+# Best-effort parsing from local `whois` output. If `whois` is not available, returns "-|-|-|-".
 get_whois_summary() {
   local name="$1"
   local registrar="-" expiry="-" ns="-" status="-"
   if has_cmd whois; then
     local out
     out=$(whois "$name" 2>/dev/null || true)
+    # Registrar
     registrar=$(awk -F":" 'tolower($1) ~ /registrar/ {gsub(/^ +| +$/,"",$2); print $2; exit}' <<<"$out" || true)
+    # Expiry: match common labels
     expiry=$(awk -F":" 'tolower($1) ~ /expiry|expir|expiration/ {gsub(/^ +| +$/,"",$2); print $2; exit}' <<<"$out" || true)
+    # Name servers (may appear multiple times)
     ns=$(awk -F":" 'tolower($1) ~ /name server|nserver|nameserver/ {gsub(/^ +| +$/,"",$2); print $2}' <<<"$out" | tr '\n' ',' | sed 's/,$//' || true)
+    # Status lines (Domain Status: can contain multiple values like clientHold)
     status=$(awk -F":" 'tolower($1) ~ /status/ {gsub(/^ +| +$/,"",$2); print $2}' <<<"$out" | tr '\n' ',' | sed 's/,$//' || true)
   fi
   [[ -z "$registrar" ]] && registrar="-"
@@ -124,19 +131,26 @@ get_whois_summary() {
   printf "%s|%s|%s|%s" "$registrar" "$expiry" "$ns" "$status"
 }
 
+# Open a URL in the user's browser (cross-platform best-effort)
 open_url() {
   local url="$1"
+  # Prefer platform native openers. On Windows prefer explorer.exe; if PowerShell
+  # is available, use Start-Process which is more robust for URLs when launched
+  # from different shells. Otherwise fall back to xdg-open/open or print.
   if command -v explorer.exe >/dev/null 2>&1; then
     explorer.exe "$url" 2>/dev/null &
   elif command -v pwsh.exe >/dev/null 2>&1; then
+    # PowerShell Core on Windows: Start-Process opens the default browser reliably
     pwsh.exe -NoProfile -Command "Start-Process -FilePath '$url'" >/dev/null 2>&1 &
   elif command -v powershell.exe >/dev/null 2>&1; then
+    # Windows PowerShell
     powershell.exe -NoProfile -Command "Start-Process -FilePath '$url'" >/dev/null 2>&1 &
   elif command -v xdg-open >/dev/null 2>&1; then
     xdg-open "$url" 2>/dev/null &
   elif command -v open >/dev/null 2>&1; then
     open "$url" 2>/dev/null &
   else
+    # Best-effort: print the URL so caller can open it manually
     echo "Open in browser: $url"
   fi
 }

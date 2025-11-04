@@ -5,7 +5,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$SCRIPT_DIR"
 
-output=$(bash whois_rdap.sh example.com)
+output=$(bash bin/whois_rdap.sh example.com)
 if echo "$output" | grep -q "rdap.org"; then
   echo "whois smoke: PASS"
   exit 0
