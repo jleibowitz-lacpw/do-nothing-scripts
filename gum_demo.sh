@@ -3,7 +3,7 @@ set -euo pipefail
 
 # gum_demo.sh
 # A quick demonstration of the 'gum' utility for creating glamorous shell scripts.
-# This script showcases various gum features in the context of "eventual automation".
+# This script showcases various gum features in the context of "gradual automation".
 
 # --- Helper Functions ---
 
