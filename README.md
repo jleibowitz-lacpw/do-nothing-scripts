@@ -1,5 +1,5 @@
 
-🧘 A small collection of "do-nothing" shell scripts that use Charmbracelet's `gum` to scaffold ideas, guide manual workflows, and act as placeholders for gradual automation.
+🧘 A small collection of "do-nothing" shell scripts that use Charmbracelet's `gum` to scaffold ideas, guide manual workflows, and act as placeholders for [gradual automation](https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/).
 
 Started with a `sentry` helper that walks you through creating and configuring a Sentry project. These scripts are intentionally lightweight — they show the steps and collect inputs, but don't perform destructive actions or call external APIs.
 
